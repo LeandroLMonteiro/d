@@ -9,5 +9,5 @@ export interface Alerta { type: StatusType; message: string };
 export const generalParameters = {
     maxNomeLength: 30,
     estiloPadrao: 'snake_case' as Estilo,
-    desabilitarEstilo: true
+    desabilitarEstilo: false
 };

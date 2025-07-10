@@ -16,7 +16,7 @@ import { useNomeGenerator } from './hooks/useNomeGenerator';
 
 
 export const HomeWrapper = styled.div`
-  background-color: ${({ theme }) => theme.BackgroundColorPublic01High}};
+  background-color: ${({ theme }) => theme.BackgroundColorPublic01High};
 `;
 
 function App() {
@@ -45,12 +45,54 @@ function App() {
 
   return (
       <div className="App">
-        <HomeWrapper id='home-wrapper'>
+        <HomeWrapper id='home-wrapper'>        
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'stretch', 
+              justifyContent: 'center',
+              position: 'relative',
+              padding: '1rem'
+            }}
+          >
+            <LftTypography
+              id="title"
+              variant="h1"
+              component="title"
+              size="large"
+              style={{
+                fontWeight: 'bold',
+                display: 'flex',
+                alignItems: 'center', // Centraliza o texto verticalmente
+                padding: '0 1rem'
+              }}
+            >
+              Dicionário de Dados
+            </LftTypography>
 
-          <LftHeaderBase id="header" hiddenMenuButton={true}></LftHeaderBase>
-          
-          <LftTypography id="title" variant="h1" component="title" size="medium" >Dicionário de Dados</LftTypography>
-                   
+            <div
+              style={{
+                position: 'absolute',
+                right: 0,
+                top: 0,
+                bottom: 0,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <LftHeaderBase
+                id="header"
+                hiddenMenuButton={true}
+                style={{
+                  height: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              />
+            </div>
+          </div>
+
+
           <LftInputTextArea
             label='Descrição'
             lftChange={handleDescricaoChange}
@@ -79,6 +121,7 @@ function App() {
           <LftDivider />
           
           <div id="area-buttons" style={{ display: 'inline-block' }}>
+            <div style={{ display: 'inline-block' }}>
             <LftButton
               id="limpar-button"
               style={{ display: 'inline-block' }} 
@@ -94,7 +137,9 @@ function App() {
               }}>
                 Limpar
             </LftButton>
-
+            </div>
+          
+          <div style={{ display: 'inline-block' }}>
             <LftButton 
               id="gerar-nome-button"
               style={{ display: 'inline-block' }} 
@@ -106,7 +151,9 @@ function App() {
               lftClick={() => gerarNome(descricao, estilo)}>
                 Gerar Nome
             </LftButton>
+          </div>
 
+          <div style={{ display: 'inline-block' }}>
             <LftButton 
               id="copiar-sugestao-button"
               style={{ display: 'inline-block' }} 
@@ -119,7 +166,7 @@ function App() {
                 Copiar Sugestão
             </LftButton>
           </div>
-          
+          </div>
           <LftDivider />
           
           <div id="alerta" >
